@@ -32,12 +32,14 @@ public class DoorScript : MonoBehaviour
     void OnTriggerEnter(Collider col)
 	{
         if(col.tag == "Player") isArea = true;
+        Debug.Log(isArea);
 		
 	}
 
     void OnTriggerExit(Collider col)
 	{
         if(col.tag == "Player") isArea = false;
+        Debug.Log(isArea);
 		
 	}
 
