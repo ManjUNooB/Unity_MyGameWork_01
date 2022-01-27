@@ -5,7 +5,7 @@ using UnityEngine;
 public class DoorCS : MonoBehaviour
 {
     //ïœêîêÈåæ
-    public KeyCode DoorOpen;
+    public KeyCode DoorOpen = KeyCode.E;
 
     private bool keyFlag;
     private bool isArea;
@@ -16,13 +16,13 @@ public class DoorCS : MonoBehaviour
     void Start()
     {
         isArea = false;
-        doorAnimator.transform.parent.GetComponent<Animator>();
+        doorAnimator = transform.parent.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-		if (Input.GetKeyDown(DoorOpen) && isArea && keyFlag)
+		if (Input.GetKeyDown(DoorOpen) && isArea)
 		{
             doorAnimator.SetBool("Open", !doorAnimator.GetBool("Open"));
 		}
@@ -31,10 +31,12 @@ public class DoorCS : MonoBehaviour
 	private void OnTriggerEnter(Collider col)
 	{
         if (col.tag == "Player") isArea = true;
+        Debug.Log(isArea);
 	}
 
 	private void OnTriggerExit(Collider col)
 	{
         if (col.tag == "Player") isArea = false;
+        Debug.Log(isArea);
 	}
 }
