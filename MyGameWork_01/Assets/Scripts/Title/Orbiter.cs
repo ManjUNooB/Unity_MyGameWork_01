@@ -7,11 +7,13 @@ public class Orbiter : MonoBehaviour
     [SerializeField] float radius = 10;  // ‰ñ“]”¼Œa
     [SerializeField] float cycle = 27;   // ‰ñ“]ŽüŠú
     [SerializeField] float angle = 0;    // Šp“x
+
+   
     
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
