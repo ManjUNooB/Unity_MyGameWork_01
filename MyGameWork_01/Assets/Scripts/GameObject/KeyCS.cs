@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class KeyCS : MonoBehaviour
 {
-    GameObject Player_Obj;
-
+    [SerializeField]GameObject PlayerObj;
+    [SerializeField] GameObject KeyManagerObj;
+    KeyManagerCS script;
     // Start is called before the first frame update
     void Start()
     {
-        Player_Obj = GameObject.FindWithTag("Player").GetComponent<GameObject>();
+        script = KeyManagerObj.GetComponent<KeyManagerCS>();
     }
 
     // Update is called once per frame
@@ -22,7 +23,7 @@ public class KeyCS : MonoBehaviour
 	{
         if(Col_Obj.tag == "Player")
 		{
-            Player_Obj.GetComponent<FirstPersonMovement>().Has_Key = true;
+            script.KeyFlag = true;
             Destroy(this.gameObject);
         }
 	}

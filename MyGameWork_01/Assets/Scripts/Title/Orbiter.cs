@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Orbiter : MonoBehaviour
 {
-    [SerializeField] float radius = 10;  // ‰ñ“]”¼Œa
-    [SerializeField] float cycle = 27;   // ‰ñ“]üŠú
-    [SerializeField] float angle = 0;    // Šp“x
+    [SerializeField] GameObject centerObject;   //  ‰ñ“]‚Ì’†SƒIƒuƒWƒFƒNƒg
+    [SerializeField] float radius = 0;  // ‰ñ“]”¼Œa
+    [SerializeField] float cycle = 0;   // ‰ñ“]üŠú
+    float angle = 0;
 
    
     
@@ -19,10 +20,13 @@ public class Orbiter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        angle -= Time.deltaTime * 2 * Mathf.PI / cycle;
+        angle -= Time.deltaTime * 2 * Mathf.PI / cycle / 50;
         float x = Mathf.Sin(angle) * radius;
         float z = Mathf.Cos(angle) * radius;
 
-        transform.position = new Vector3(x, 0, z);
+        Vector3 center = centerObject.transform.position;
+        transform.position = center + new Vector3(x, 0, z);
+
+        
     }
 }

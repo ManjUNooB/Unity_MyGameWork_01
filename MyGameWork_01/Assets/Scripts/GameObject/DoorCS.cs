@@ -6,8 +6,12 @@ public class DoorCS : MonoBehaviour
 {
     //ïœêîêÈåæ
     public KeyCode DoorOpen = KeyCode.E;
-    GameObject Player_Obj;
+    [SerializeField] GameObject playerObj;
+    [SerializeField] GameObject keymanagerObj;
+    KeyManagerCS keymanagerScript;
+
     private bool isArea;
+    private bool hasKey;
 
     private Animator doorAnimator;
 
@@ -16,15 +20,19 @@ public class DoorCS : MonoBehaviour
     {
         isArea = false;
         doorAnimator = transform.parent.GetComponent<Animator>();
-        Player_Obj = GameObject.FindWithTag("Player").GetComponent<GameObject>();
+        keymanagerScript = keymanagerObj.GetComponent<KeyManagerCS>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-		if (Input.GetKeyDown(DoorOpen) && isArea && Player_Obj.GetComponent<FirstPersonMovement>().Has_Key)
+		if (Input.GetKeyDown(DoorOpen) && isArea)
 		{
-            doorAnimator.SetBool("Open", !doorAnimator.GetBool("Open"));
+            if (hasKey = keymanagerScript.KeyFlag)
+            {
+                doorAnimator.SetBool("Open", !doorAnimator.GetBool("Open"));
+            }
 		}
     }
 

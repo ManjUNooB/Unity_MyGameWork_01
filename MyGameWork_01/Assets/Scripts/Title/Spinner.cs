@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spinner : MonoBehaviour
 {
-
+    
     private float angle = 0;
 
     // Start is called before the first frame update
@@ -16,7 +16,7 @@ public class Spinner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        angle = Time.deltaTime * 360;
+        angle = Time.deltaTime * 360 / 50;
         transform.Rotate(Vector3.up, angle);
     }
 }
