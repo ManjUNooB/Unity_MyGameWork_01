@@ -4,47 +4,113 @@ using UnityEngine;
 
 public class DoorCS : MonoBehaviour
 {
-    //変数宣言
-    public KeyCode DoorOpen = KeyCode.E;
+    [Header("ドア開閉キー")]
+    public KeyCode DoorOpen = KeyCode.E;      
+
+    //  紐付けるオブジェクト
     [SerializeField] GameObject playerObj;
     [SerializeField] GameObject keymanagerObj;
+
+    //  音関連
+    [Header("SE")]
+    [SerializeField] AudioClip lockSE;
+    [SerializeField] AudioClip openSE;
     KeyManagerCS keymanagerScript;
 
+    //  フラグ系
     private bool isArea;
     private bool hasKey;
+    private bool isOpen;
 
+    //  その他
     private Animator doorAnimator;
+    private AudioSource audioSource;
+
+    private float timer;
 
     // Start is called before the first frame update
     void Start()
     {
         isArea = false;
+        timer = 1.5f;
         doorAnimator = transform.parent.GetComponent<Animator>();
         keymanagerScript = keymanagerObj.GetComponent<KeyManagerCS>();
+        audioSource = this.gameObject.GetComponent<AudioSource>();
         
     }
 
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
+        
+        if (isArea)
+        {
+            if (Input.GetKeyDown(DoorOpen))
+            {
+                if (hasKey = keymanagerScript.KeyFlag)
+                {
+                    doorAnimator.SetBool("Open", !doorAnimator.GetBool("Open"));
+                    if (!isOpen)
+                    {
+                        audioSource.PlayOneShot(openSE);
+                        isOpen = true;
+                    }
+                }
+                else
+                {
+                    if (timer >= 1.5f)
+                    {
+                        audioSource.PlayOneShot(lockSE);
+                        timer = 0.0f;
+                    }
+                }
+
+            }
+        }
+
+    }
+        /*
 		if (Input.GetKeyDown(DoorOpen) && isArea)
 		{
-            if (hasKey = keymanagerScript.KeyFlag)
-            {
-                doorAnimator.SetBool("Open", !doorAnimator.GetBool("Open"));
-            }
-		}
-    }
+			time += Time.deltaTime;
+			if (hasKey = keymanagerScript.KeyFlag)
+			{
+				doorAnimator.SetBool("Open", !doorAnimator.GetBool("Open"));
+				if (!isOpen)
+				{
+					audioSource.PlayOneShot(openSE);
+					isOpen = true;
+				}
+			}
+			else
+			{
+				if (time >= 1.0f)
+				{
+					audioSource.PlayOneShot(lockSE);
+					time = 0.0f;
+				}
+			}
 
-	private void OnTriggerEnter(Collider col)
+		}
+	
+
+        */
+	void OnTriggerEnter(Collider col)
 	{
         if (col.tag == "Player") isArea = true;
+        Debug.Log("isArea:");
         Debug.Log(isArea);
+        Debug.Log("hasKey:");
+        Debug.Log(hasKey);
 	}
 
-	private void OnTriggerExit(Collider col)
+	void OnTriggerExit(Collider col)
 	{
         if (col.tag == "Player") isArea = false;
+        Debug.Log("isArea:");
         Debug.Log(isArea);
+        Debug.Log("hasKey:");
+        Debug.Log(hasKey);
     }
 }
