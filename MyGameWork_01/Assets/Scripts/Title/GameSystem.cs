@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class GameSystem : MonoBehaviour
 {
+	[SerializeField] string sceneName;
+
 	void Update()
 	{
 		if (Input.GetKey(KeyCode.Escape)) QuitGame();
@@ -12,7 +14,7 @@ public class GameSystem : MonoBehaviour
 	//	if Push StartButton GameStart
 	public void StartGame()
 	{
-		SceneManager.LoadScene("MainStage1");
+		SceneManager.LoadScene(sceneName);
 	}
 
 	// if Push Quit Button Quit Game

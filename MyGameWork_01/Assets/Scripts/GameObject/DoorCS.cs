@@ -27,12 +27,15 @@ public class DoorCS : MonoBehaviour
     private AudioSource audioSource;
 
     private float timer;
+    [Header("SEインターバル")]
+    [Range(0.0f, 10.0f)] float intervalSE;
+
 
     // Start is called before the first frame update
     void Start()
     {
         isArea = false;
-        timer = 1.5f;
+        timer = intervalSE;
         doorAnimator = transform.parent.GetComponent<Animator>();
         keymanagerScript = keymanagerObj.GetComponent<KeyManagerCS>();
         audioSource = this.gameObject.GetComponent<AudioSource>();
@@ -59,7 +62,7 @@ public class DoorCS : MonoBehaviour
                 }
                 else
                 {
-                    if (timer >= 1.5f)
+                    if (timer >= intervalSE)
                     {
                         audioSource.PlayOneShot(lockSE);
                         timer = 0.0f;
