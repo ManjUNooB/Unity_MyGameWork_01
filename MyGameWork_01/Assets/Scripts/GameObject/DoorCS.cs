@@ -28,7 +28,8 @@ public class DoorCS : MonoBehaviour
 
     private float timer;
     [Header("SEインターバル")]
-    [Range(0.0f, 10.0f)] float intervalSE;
+    [Range(0.0f, 10.0f)]
+    [SerializeField]float intervalSE = 1.0f;
 
 
     // Start is called before the first frame update

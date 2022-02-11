@@ -12,40 +12,36 @@ public class TutorialCS : MonoBehaviour
     [Header("チュートリアルのUI")]
     [SerializeField]    private GameObject tutorialUI;
 
-    private float timer;
+    [SerializeField] AudioClip buttonSE;
+    AudioSource audioSource;
+
+    //private float timer;
    
 
     // Start is called before the first frame update
     void Start()
     {
-        timer = 0.0f;
+        //timer = 0.0f;
+        audioSource = tutorialUI.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        //  時間停止は後
+        //if (tutorialUI.activeSelf)
+        //{
+        //    Time.timeScale = 0f;
+        //}
+        //else
+        //{
+        //    Time.timeScale = 1f;
+        //}
 
-        if(timer > limit)
-		{
-			if (!tutorialUI.activeSelf)
-			{
-
-			}
-		}
-
-		if (Input.GetKeyDown(tutorialKey))
+        if (Input.GetKeyDown(tutorialKey))
 		{
             tutorialUI.SetActive(!tutorialUI.activeSelf);
-
-			if (tutorialUI)
-			{
-                Time.timeScale = 0f;
-			}
-			else
-			{
-                Time.timeScale = 1f;
-			}
+            audioSource.PlayOneShot(buttonSE);
 		}
     }
 }

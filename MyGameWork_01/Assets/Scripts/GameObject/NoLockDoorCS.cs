@@ -37,13 +37,15 @@ public class NoLockDoorCS : MonoBehaviour
     {
 		if (Input.GetKeyDown(doorKey))
 		{
-            if(!isOpen)
+			if (isArea)
 			{
-                doorAnimator.SetBool("Open", !doorAnimator.GetBool("Open"));
-                audioSource.PlayOneShot(openSE);
-                isOpen = true;
+                if(!isOpen)
+			    {
+                    doorAnimator.SetBool("Open", !doorAnimator.GetBool("Open"));
+                    audioSource.PlayOneShot(openSE);
+                    isOpen = true;
+			    }
 			}
-            
 		}
     }
 
