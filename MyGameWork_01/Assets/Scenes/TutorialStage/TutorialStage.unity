@@ -838,6 +838,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -6.6
       objectReference: {fileID: 0}
+    - target: {fileID: 9019017412120269180, guid: 3bc040828735b1249b02c43c072a1e49, type: 3}
+      propertyPath: buttonSE
+      value: 
+      objectReference: {fileID: 8300000, guid: 14959104d64a04c4bb97dccdee4ffec5, type: 3}
+    - target: {fileID: 9019017412120269180, guid: 3bc040828735b1249b02c43c072a1e49, type: 3}
+      propertyPath: tutorialUI
+      value: 
+      objectReference: {fileID: 691641362}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc040828735b1249b02c43c072a1e49, type: 3}
 --- !u!1001 &2179552022671622084
