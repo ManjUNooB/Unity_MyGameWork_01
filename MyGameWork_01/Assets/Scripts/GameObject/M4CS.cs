@@ -4,24 +4,31 @@ using UnityEngine;
 
 public class M4CS : MonoBehaviour
 {
-    [Header("PlayerObject")]
-    [SerializeField] private GameObject playerObj;
-    private GunModeCS gunmodeCS;
+	[Header("PlayerObject")]
+	[SerializeField] private GameObject playerObj;
+	private GunModeCS gunmodeCS;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        gunmodeCS = playerObj.GetComponent<GunModeCS>();
-    }
+	[Header("ItemM4Prefab")]
+	[SerializeField] private GameObject m4ItemObj;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	// Start is called before the first frame update
+	void Start()
+	{
+		gunmodeCS = playerObj.GetComponent<GunModeCS>();
+	}
 
-	private void OnTriggerEnter(Collider other)
+	// Update is called once per frame
+	void Update()
 	{
 		
+	}
+
+	private void OnTriggerEnter(Collider coll)
+	{
+		if (coll.tag == "Player")
+		{
+			gunmodeCS.ModeFlag = true;
+			Destroy(m4ItemObj);
+		}
 	}
 }
