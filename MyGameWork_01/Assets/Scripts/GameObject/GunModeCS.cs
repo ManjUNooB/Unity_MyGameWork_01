@@ -39,8 +39,8 @@ public class GunModeCS : MonoBehaviour
 		if (gunFlag)
 		{
 			M4Obj.SetActive(!M4Obj.activeSelf);
+			gunFlag = true;
 		}
-
 
 	}
 
@@ -51,7 +51,8 @@ public class GunModeCS : MonoBehaviour
 			Debug.Log(gunFlag);
 		}
 
-		if (gunFlag){
+		if (gunFlag)
+		{
 			//マウスを押した時
 			if (Input.GetMouseButton(mouseButton))
 			{
