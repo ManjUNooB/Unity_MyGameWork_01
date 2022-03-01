@@ -14,31 +14,30 @@ public class GunModeCS : MonoBehaviour
 	[Range(0, 2)] private int mouseButton;
 
 	//Audio
-	[SerializeField] private AudioSource gunmodeAudio;
-	[SerializeField] private AudioClip gunmodeSE;
+	//[SerializeField] private AudioSource gunmodeAudio;
+	//[SerializeField] private AudioClip gunmodeSE;
 
 	//フラグ
 	private bool gunFlag;
 	//プロパティ
-	public bool ModeFlag
+	public bool modeFlag
 	{
-		set { gunFlag = ModeFlag; }
+		set { gunFlag = value; }
 		get { return gunFlag; }
 	}
 
 	// Start is called before the first frame update
 	void Start()
 	{
-
+		
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
 		//銃の有効化
-		if (gunFlag)
-		{
-			M4Obj.SetActive(!M4Obj.activeSelf);
+		if(gunFlag){
+			M4Obj.SetActive(true);
 			gunFlag = true;
 		}
 
@@ -48,7 +47,7 @@ public class GunModeCS : MonoBehaviour
 	{
 		if (Input.GetKey(KeyCode.F))
 		{
-			Debug.Log(gunFlag);
+			Debug.Log("gunFlag :" + gunFlag) ;
 		}
 
 		if (gunFlag)

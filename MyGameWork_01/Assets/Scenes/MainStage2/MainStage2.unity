@@ -250,8 +250,6 @@ MonoBehaviour:
   playerCamera: {fileID: 225152346}
   M4Obj: {fileID: 2068978202}
   mouseButton: 0
-  gunmodeAudio: {fileID: 0}
-  gunmodeSE: {fileID: 0}
 --- !u!1001 &197877801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -640,7 +638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 141186, guid: 53c22e1773be7f84aad8ed8b7b58fa6e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11486218, guid: 53c22e1773be7f84aad8ed8b7b58fa6e, type: 3}
       propertyPath: m_Enabled

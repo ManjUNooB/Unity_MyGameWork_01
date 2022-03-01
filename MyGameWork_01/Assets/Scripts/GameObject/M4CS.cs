@@ -27,7 +27,7 @@ public class M4CS : MonoBehaviour
 	{
 		if (coll.tag == "Player")
 		{
-			gunmodeCS.ModeFlag = true;
+			gunmodeCS.modeFlag = true;
 			Destroy(m4ItemObj);
 		}
 	}

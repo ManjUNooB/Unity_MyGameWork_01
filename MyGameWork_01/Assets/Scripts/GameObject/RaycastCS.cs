@@ -20,7 +20,6 @@ public class RaycastCS : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-
 		if(Input.GetMouseButton(MouseKey)){
 			Ray ray = playerCamera.ViewportPointToRay(new Vector2(0.5f, 0.5f));
 			RaycastHit hit;
