@@ -6,10 +6,10 @@ public class TutorialCS : MonoBehaviour
 {
     private KeyCode tutorialKey = KeyCode.T;
 
-    [Header("ƒ`ƒ…[ƒgƒŠƒAƒ‹•\¦‚Ü‚Å‚ÌŠÔ")]
+    [Header("ãƒãƒ¥ãƒ¼ãƒˆãƒªã‚¢ãƒ«è¡¨ç¤ºã¾ã§ã®æ™‚é–“")]
     [Range(0.0f,10.0f)] float limit;
 
-    [Header("ƒ`ƒ…[ƒgƒŠƒAƒ‹‚ÌUI")]
+    [Header("ãƒãƒ¥ãƒ¼ãƒˆãƒªã‚¢ãƒ«ã®UI")]
     [SerializeField]    private GameObject tutorialUI;
 
     [SerializeField] AudioClip buttonSE;
@@ -28,7 +28,7 @@ public class TutorialCS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //  ŠÔ’â~‚ÍŒã
+        //  æ™‚é–“åœæ­¢ã¯å¾Œ
         //if (tutorialUI.activeSelf)
         //{
         //    Time.timeScale = 0f;
@@ -40,7 +40,7 @@ public class TutorialCS : MonoBehaviour
 
         if (Input.GetKeyDown(tutorialKey))
 		{
-            tutorialUI.SetActive(!tutorialUI.activeSelf);
+            tutorialUI.SetActive(!(tutorialUI.activeSelf));
             audioSource.PlayOneShot(buttonSE);
 		}
     }

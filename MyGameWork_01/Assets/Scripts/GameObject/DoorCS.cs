@@ -4,30 +4,30 @@ using UnityEngine;
 
 public class DoorCS : MonoBehaviour
 {
-    [Header("ƒhƒAŠJ•ÂƒL[")]
-    public KeyCode DoorOpen = KeyCode.E;      
+    [Header("ãƒ‰ã‚¢é–‹é–‰ã‚­ãƒ¼")]
+    public KeyCode DoorOpen = KeyCode.E;
 
-    //  •R•t‚¯‚éƒIƒuƒWƒFƒNƒg
+    //  ç´ä»˜ã‘ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     [SerializeField] GameObject playerObj;
     [SerializeField] GameObject keymanagerObj;
 
-    //  ‰¹ŠÖ˜A
+    //  éŸ³é–¢é€£
     [Header("SE")]
     [SerializeField] AudioClip lockSE;
     [SerializeField] AudioClip openSE;
     KeyManagerCS keymanagerScript;
 
-    //  ƒtƒ‰ƒOŒn
+    //  ãƒ•ãƒ©ã‚°ç³»
     private bool isArea;
     private bool hasKey;
     private bool isOpen;
 
-    //  ‚»‚Ì‘¼
+    //  ãã®ä»–
     private Animator doorAnimator;
     private AudioSource audioSource;
 
     private float timer;
-    [Header("SEƒCƒ“ƒ^[ƒoƒ‹")]
+    [Header("SEã‚¤ãƒ³ã‚¿ãƒ¼ãƒãƒ«")]
     [Range(0.0f, 10.0f)]
     [SerializeField]float intervalSE = 1.0f;
 

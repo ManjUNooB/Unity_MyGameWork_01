@@ -8,10 +8,19 @@ public class GunModeCS : MonoBehaviour
 	[SerializeField] private Camera playerCamera;
 	//M4のプレハブ
 	[SerializeField] private GameObject M4Obj;
+	//ドア
+	[SerializeField] private GameObject doorObj;
 
 	//マウス設定
 	[SerializeField]
 	[Range(0, 2)] private int mouseButton;
+
+	//レイの長さ
+	[SerializeField]
+	[Range(0.0f, 100.0f)] private float rayRange;
+
+	//スクリプト
+	ShootingDoorCS doorCS;
 
 	//Audio
 	//[SerializeField] private AudioSource gunmodeAudio;
@@ -19,6 +28,7 @@ public class GunModeCS : MonoBehaviour
 
 	//フラグ
 	private bool gunFlag;
+	private bool hitFlag;
 	//プロパティ
 	public bool modeFlag
 	{
@@ -29,14 +39,16 @@ public class GunModeCS : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		
+		doorCS = doorObj.GetComponent<ShootingDoorCS>();
+		hitFlag = false;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
 		//銃の有効化
-		if(gunFlag){
+		if (gunFlag)
+		{
 			M4Obj.SetActive(true);
 			gunFlag = true;
 		}
@@ -45,11 +57,6 @@ public class GunModeCS : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		if (Input.GetKey(KeyCode.F))
-		{
-			Debug.Log("gunFlag :" + gunFlag) ;
-		}
-
 		if (gunFlag)
 		{
 			//マウスを押した時
@@ -58,9 +65,17 @@ public class GunModeCS : MonoBehaviour
 				Ray ray = playerCamera.ViewportPointToRay(new Vector2(0.5f, 0.5f));
 				RaycastHit hit;
 
-				if (Physics.Raycast(ray, out hit, 20.0f))
+				if (Physics.Raycast(ray, out hit, rayRange))
 				{
-					Debug.Log(hit.collider.transform.name);
+					if (hit.transform.tag == "Target")
+					{
+						if (!hitFlag)
+						{
+							doorCS.LockFlag(false);
+							Debug.Log("Target Hit");
+							hitFlag = true;
+						}
+					}
 				}
 				Debug.DrawRay(ray.origin, ray.direction * 10, Color.red, 5);
 			}
