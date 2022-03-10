@@ -1068,7 +1068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b6cca8f59e27a4e90ecae752cbf703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorKey: 101
+  doorKey: 102
   playerObj: {fileID: 185913190}
   lockSE: {fileID: 8300000, guid: d08c47f442bb9f64cb31376c4f748cb3, type: 3}
   openSE: {fileID: 8300000, guid: 21e6d69d0bd48d54bb5d2ff8fea35e92, type: 3}

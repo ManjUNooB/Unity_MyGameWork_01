@@ -1215,6 +1215,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 21e6d69d0bd48d54bb5d2ff8fea35e92, type: 3}
     - target: {fileID: 2951253359908187636, guid: 7acc3dec1367a434bb2be2bed7c472c5, type: 3}
+      propertyPath: DoorOpen
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951253359908187636, guid: 7acc3dec1367a434bb2be2bed7c472c5, type: 3}
       propertyPath: playerObj
       value: 
       objectReference: {fileID: 185913190}

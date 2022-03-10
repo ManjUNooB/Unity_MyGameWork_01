@@ -591,7 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7ef15e445532040b9ba8219681f5c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoorOpen: 101
+  DoorOpen: 102
   playerObj: {fileID: 185913190}
   lockSE: {fileID: 8300000, guid: d08c47f442bb9f64cb31376c4f748cb3, type: 3}
   unlockSE: {fileID: 8300000, guid: 3a989cb603e02124ea959b3cdbce0f4c, type: 3}
@@ -1855,6 +1855,10 @@ PrefabInstance:
       propertyPath: openSE
       value: 
       objectReference: {fileID: 8300000, guid: 21e6d69d0bd48d54bb5d2ff8fea35e92, type: 3}
+    - target: {fileID: 2951253359908187636, guid: 7acc3dec1367a434bb2be2bed7c472c5, type: 3}
+      propertyPath: DoorOpen
+      value: 102
+      objectReference: {fileID: 0}
     - target: {fileID: 2951253359908187636, guid: 7acc3dec1367a434bb2be2bed7c472c5, type: 3}
       propertyPath: m_Enabled
       value: 0
